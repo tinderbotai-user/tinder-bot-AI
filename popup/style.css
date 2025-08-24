@@ -1,0 +1,108 @@
+:root {
+    --primary-color: #f44336;
+    --primary-color-dark: #d32f2f;
+    --match-color: #5dea7e;
+    --tab-background: #919191;
+    --tab-active-color: #ffffff;
+    --button-text-color: #ffffff;
+    --text-color: #000000;
+    --border-radius: 5px;
+    --font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    width: 300px;
+    padding: 10px;
+}
+
+#controls {
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 6px 10px;
+    background: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+button:hover {
+    background: var(--primary-color-dark);
+}
+
+#match-viewer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#match-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.match-image-like {
+    border: 3px solid  var(--match-color);
+    border-radius: var(--border-radius);
+}
+.match-image-nope {
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+.wide-button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+}
+.match-image {
+    max-width:100%;
+    max-height:200px;
+    width: 160px;
+    height: 200px;
+    display: inline-block;
+}
+/* Tab navigation */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.tab-button {
+    flex: 1;
+    padding: 8px;
+    background: var(--tab-background);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin-right: 2px;
+    color: var(--tab-active-color);
+    transition: background 0.2s ease;
+}
+.tab-button:first-child {
+    margin-left: 0;
+}
+.tab-button:last-child {
+    margin-right: 0;
+}
+.tab-button.active {
+    background: var(--primary-color);
+    color: var(--button-text-color);
+}
+
+.tab-content {
+    display: none;
+    border-top: 2px solid var(--primary-color);
+    padding-top: 10px;
+}
+.tab-content.active {
+    display: block;
+}

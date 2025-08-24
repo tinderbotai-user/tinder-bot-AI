@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tinder BOT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Tinder BOT</h1>
+
+<div class="tabs">
+    <button class="tab-button active" data-tab="autolike-tab">Auto-Like</button>
+    <button class="tab-button" data-tab="autochat-tab">Auto-Chat</button>
+    <button class="tab-button" data-tab="ai-tab">AI</button>
+</div>
+
+<div class="tab-content active" id="autolike-tab">
+    <div id="controls">
+        <button id="toggle-autolike" class="wide-button">Pause Auto-Like</button>
+        <div>Total Profiles Processed: <span id="profile-count">0</span></div>
+    </div>
+
+    <hr>
+
+    <div id="matches-section">
+        <h2>Previous Matches</h2>
+        <div id="match-viewer">
+            <div id="match-name">No matches yet</div>
+            <img id="match-image" class="match-image" src="" alt="Profile picture">
+            <div id="match-decision"></div>
+        </div>
+        <div>
+            <button id="prev-match">Prev</button>
+            <button id="next-match" style="float: right;">Next</button>
+        </div>
+    </div>
+</div>
+
+<div class="tab-content" id="autochat-tab">
+    <h2>Auto-Chat</h2>
+    <p>Coming soon: Automatically respond to matches with pre-configured messages.</p>
+</div>
+
+<div class="tab-content" id="ai-tab">
+    <h2>AI</h2>
+    <p>Coming soon: AI-generated message suggestions and match analysis.</p>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
