@@ -12,7 +12,8 @@ function showMatch(index) {
     }
     const match = matches[index];
     document.getElementById("match-name").innerText = `${match.name}, ${match.age}`;
-    matchImage.src = match.urls?.[0] || "";
+    matchImage.src = match.pictures?.[0] || "";
+    // matchImage.src = match.urls?.[0] || ""; // URLs go down after a while
     matchImage.classList.add(match.decision === "dislike" ? "match-image-nope" : "match-image-like");
     document.getElementById("match-decision").innerText = `Decision: ${match.decision}`;
 }
