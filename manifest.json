@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "TinderBot",
   "description": "Bot for Tinder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "permissions": [
     "storage",
     "unlimitedStorage",
@@ -12,7 +12,8 @@
     "webNavigation"
   ],
   "host_permissions": [
-    "https://images-ssl.gotinder.com/*"
+    "https://images-ssl.gotinder.com/*",
+    "https://tinder.com/*"
   ],
   "action": {
     "default_popup": "popup/popup.html",
@@ -36,12 +37,12 @@
   "content_scripts": [
     {
       "matches": [
-        "https://tinder.com/app/recs"
+        "https://tinder.com/*"
       ],
       "js": [
-        "content/swiper.js",
-        "content/chatter.js"
-      ]
+        "content/boot.js"
+      ],
+      "run_at": "document_idle"
     }
   ]
 }
