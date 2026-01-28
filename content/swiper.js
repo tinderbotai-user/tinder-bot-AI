@@ -24,6 +24,7 @@ function gaussianRandom(mean = 0, stdev = 1) {
     let z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
     return z * stdev + mean;
 }
+
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 // === Overlay ===
@@ -129,7 +130,8 @@ function dialogContainsOutOfLikes() {
     const dialogs = document.querySelectorAll(OUT_OF_LIKES_DIALOG_SELECTOR);
     for (const d of dialogs) {
         const t = (d.innerText || "").toLowerCase();
-        if (t.includes("out of likes") || t.includes("no more likes")) return true;
+        if (t.includes("out of likes") || t.includes("no more likes")
+            || t.includes("unlimited likes. send as many likes as you want.")) return true;
     }
     return false;
 }
