@@ -1,3 +1,6 @@
+const DEFAULT_PAGE_SIZE = 100;   // how many profiles per fetch
+
+
 function base64Matches(b64a, b64b) {
     if (!b64a || !b64b) return false;
     if (b64a.slice(0, 50) !== b64b.slice(0, 50)) return false;
@@ -235,10 +238,22 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
             case "getStats": {
                 const { visitedProfiles = [] } = await chrome.storage.local.get("visitedProfiles");
+
+                const total = visitedProfiles.length;
+
+                // pagination params (safe defaults)
+                const skip = Math.max(0, Number(message.skip) || 0);
+                const topRaw = Number(message.top);
+                const top = topRaw > 0 ? topRaw : DEFAULT_PAGE_SIZE;
+
+                const page = visitedProfiles.slice(skip, skip + top);
+
                 sendResponse({
                     running: handler.isAutoLikeRunning(),
-                    count: visitedProfiles.length,
-                    matches: visitedProfiles,
+                    count: total,                 // total profiles ever processed
+                    matches: page,                // only this batch
+                    skip,
+                    top,
                     autoLikeStatus: handler.autoLikeStatus,
                     autoChatStatus: handler.autoChatStatus,
                     activeTabId: handler.activeTabId,

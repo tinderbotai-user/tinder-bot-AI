@@ -40,7 +40,8 @@
         "https://tinder.com/*"
       ],
       "js": [
-        "content/boot.js"
+        "content/swiper.js",
+        "content/chatter.js"
       ],
       "run_at": "document_idle"
     }

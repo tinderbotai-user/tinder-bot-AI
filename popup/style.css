@@ -69,6 +69,10 @@ button:hover {
     height: 200px;
     display: inline-block;
 }
+.page-info-text {
+    display: inline-block;
+}
+
 /* Tab navigation */
 .tabs {
     display: flex;
